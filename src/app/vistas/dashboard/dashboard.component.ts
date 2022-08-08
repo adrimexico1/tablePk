@@ -17,13 +17,16 @@ export class DashboardComponent implements OnInit {
 
   constructor(private api:ApiService, private router:Router) { }
 
-  ngOnInit() {
-    this.api.getAllPacients(1).subscribe((data:any) =>{
+
+
+  ngOnInit() { 
+    for (let i=1; i<=150;i++){
+    this.api.getAllPacients(i).subscribe((data:any) =>{
       console.log(data);
       this.url = data.sprites.front_default;
       this.name = data.name;
       this.id=data.id;
     })
   }
-
+}
 }
